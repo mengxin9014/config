@@ -1,0 +1,182 @@
+generateName: htap-test-
+resourcePool: quantify_products
+reclaimPolicy:
+  gcStrategy:
+    onFailure:
+      artifact:
+        monitor: true
+        log: true
+    onSuccess:
+      artifact:
+        monitor: true
+        log: true
+
+items:
+  - name: tidb
+    type: WORKLOAD_NODE # 测试资源类型: WORKLOAD_NODE
+    spec:
+        container:
+            name: node
+            image: hub.pingcap.net/qa/base-image
+            imagePullPolicy: Always
+            storageClassName: fast-disks
+            resources:
+                requests:
+                    memory: 16Gi
+                    cpu: "8"
+                    storage: 500Gi
+            securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+            nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
+                kubernetes.io/hostname: 172.16.6.10
+            volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tidb"
+   
+  - name: pd
+    type: WORKLOAD_NODE # 测试资源类型: WORKLOAD_NODE
+    spec:
+        container:
+            name: node
+            image: hub.pingcap.net/qa/base-image
+            imagePullPolicy: Always
+            storageClassName: fast-disks
+            resources:
+                requests:
+                    memory: 8Gi
+                    cpu: "4"
+                    storage: 500Gi
+            securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+            nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
+                kubernetes.io/hostname: 172.16.6.11
+            volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tidb"
+
+  - name: tikv
+    type: WORKLOAD_NODE # 测试资源类型: WORKLOAD_NODE
+    spec:
+        container:
+            name: node
+            image: hub.pingcap.net/qa/base-image
+            imagePullPolicy: Always
+            storageClassName: fast-disks
+            resources:
+                requests:
+                    memory: 32Gi
+                    cpu: "8"
+                    storage: 2000Gi
+            securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+            nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
+                kubernetes.io/hostname: 172.16.6.12
+            volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tidb"                  
+                    
+  - name: tikv
+    type: WORKLOAD_NODE # 测试资源类型: WORKLOAD_NODE
+    spec:
+        container:
+            name: node
+            image: hub.pingcap.net/qa/base-image
+            imagePullPolicy: Always
+            storageClassName: fast-disks
+            resources:
+                requests:
+                    memory: 32Gi
+                    cpu: "8"
+                    storage: 2000Gi
+            securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+            nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
+                kubernetes.io/hostname: 172.16.6.13
+            volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tidb"
+
+  - name: tikv
+    type: WORKLOAD_NODE # 测试资源类型: WORKLOAD_NODE
+    spec:
+        container:
+            name: node
+            image: hub.pingcap.net/qa/base-image
+            imagePullPolicy: Always
+            storageClassName: fast-disks
+            resources:
+                requests:
+                    memory: 32Gi
+                    cpu: "8"
+                    storage: 2000Gi
+            securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+            nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
+                kubernetes.io/hostname: 172.16.6.14
+            volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tidb"
+                
+  - name: tikv
+    type: WORKLOAD_NODE # 测试资源类型: WORKLOAD_NODE
+    spec:
+        container:
+            name: node
+            image: hub.pingcap.net/qa/base-image
+            imagePullPolicy: Always
+            storageClassName: fast-disks
+            resources:
+                requests:
+                    memory: 32Gi
+                    cpu: "8"
+                    storage: 2000Gi
+            securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+            nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
+                kubernetes.io/hostname: 172.16.6.15
+            volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tidb"
+                
+  - name: tiflash
+    type: WORKLOAD_NODE # 测试资源类型: WORKLOAD_NODE
+    spec:
+        container:
+            name: node
+            image: hub.pingcap.net/qa/base-image
+            imagePullPolicy: Always
+            storageClassName: fast-disks
+            resources:
+                requests:
+                    memory: 64Gi
+                    cpu: "32"
+                    storage: 2000Gi 
+            securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+            nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
+                kubernetes.io/hostname: 172.16.6.17
+            volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tiflash"
+                
+  - name: tiflash
+    type: WORKLOAD_NODE # 测试资源类型: WORKLOAD_NODE
+    spec:
+        container:
+            name: node
+            image: hub.pingcap.net/qa/base-image
+            imagePullPolicy: Always
+            storageClassName: fast-disks
+            resources:
+                requests:
+                    memory: 64Gi
+                    cpu: "32"
+                    storage: 2000Gi
+            securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+            nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
+                kubernetes.io/hostname: 172.16.6.18
+            volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tiflash"
+                
