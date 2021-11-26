@@ -29,7 +29,7 @@ items:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
             nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
-                kubernetes.io/hostname: 172.16.6.10
+                kubernetes.io/hostname: hostname
             volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
                 mountPath: "/tidb"
    
@@ -50,7 +50,7 @@ items:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
             nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
-                kubernetes.io/hostname: 172.16.6.11
+                kubernetes.io/hostname: hostname
             volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
                 mountPath: "/tidb"
 
@@ -71,7 +71,7 @@ items:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
             nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
-                kubernetes.io/hostname: 172.16.6.12
+                kubernetes.io/hostname: hostname
             volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
                 mountPath: "/tidb"                  
                     
@@ -92,7 +92,7 @@ items:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
             nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
-                kubernetes.io/hostname: 172.16.6.13
+                kubernetes.io/hostname: hostname
             volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
                 mountPath: "/tidb"
 
@@ -113,7 +113,7 @@ items:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
             nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
-                kubernetes.io/hostname: 172.16.6.14
+                kubernetes.io/hostname: hostname
             volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
                 mountPath: "/tidb"
                 
@@ -134,7 +134,7 @@ items:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
             nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
-                kubernetes.io/hostname: 172.16.6.15
+                kubernetes.io/hostname: hostname
             volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
                 mountPath: "/tidb"
                 
@@ -155,7 +155,7 @@ items:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
             nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
-                kubernetes.io/hostname: 172.16.6.17
+                kubernetes.io/hostname: hostname
             volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
                 mountPath: "/tiflash"
                 
@@ -176,7 +176,7 @@ items:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
             nodeSelector: # NOTE: 可选择运行节点, 等效于 k8s 的 nodeSelector
-                kubernetes.io/hostname: 172.16.6.18
+                kubernetes.io/hostname: hostname
             volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
                 mountPath: "/tiflash"
                 
