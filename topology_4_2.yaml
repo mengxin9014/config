@@ -25,7 +25,7 @@ monitored:
 # # Server configs are used to specify the configuration of PD Servers.
 pd_servers:
   # # The ip address of the PD Server.
-  - host: 10.233.75.203
+  - host: hostname
     client_port: 2379
     # # Communication port among PD Server nodes.
     peer_port: 2380
@@ -46,7 +46,7 @@ pd_servers:
 # # Server configs are used to specify the configuration of TiDB Servers.
 tidb_servers:
   # # The ip address of the TiDB Server.
-  - host: 10.233.78.146
+  - host: hostname
     # # SSH port of the server.
     # ssh_port: 22
     # # The port for clients to access the TiDB cluster.
@@ -62,7 +62,7 @@ tidb_servers:
 # # Server configs are used to specify the configuration of TiKV Servers.
 tikv_servers:
   # # The ip address of the TiKV Server.
-  - host:  10.233.86.81
+  - host:  hostname
     # # SSH port of the server.
     # ssh_port: 22
     # # TiKV Server communication port.
@@ -79,7 +79,7 @@ tikv_servers:
     # config:
     #   log.level: warn
   # # The ip address of the TiKV Server.
-  - host: 10.233.71.72
+  - host: hostname
     # ssh_port: 22
     port: 20160
     status_port: 20180
@@ -88,7 +88,7 @@ tikv_servers:
     log_dir: "/tidb/tidb-deploy/tikv-20160/log"
     # config:
     #   log.level: warn
-  - host: 10.233.119.133
+  - host: hostname
     # ssh_port: 22
     port: 20160
     status_port: 20180
@@ -97,7 +97,7 @@ tikv_servers:
     log_dir: "/tidb/tidb-deploy/tikv-20160/log"
     # config:
     #   log.level: warn
-  - host: 10.233.90.133
+  - host: hostname
     # ssh_port: 22
     port: 20160
     status_port: 20180
@@ -110,7 +110,7 @@ tikv_servers:
 # # Server configs are used to specify the configuration of TiFlash Servers.
 tiflash_servers:
   # # The ip address of the TiFlash Server.
-  - host: 10.233.88.134
+  - host: hostname
     # # SSH port of the server.
     # ssh_port: 22
     # # TiFlash TCP Service port.
@@ -135,7 +135,7 @@ tiflash_servers:
     data_dir: /tidb/tidb-data/tiflash-9000
     # # TiFlash Server log file storage directory.
     log_dir: /tidb/tidb-deploy/tiflash-9000/log
-  - host: 10.233.110.203
+  - host: hostname
     tcp_port: 9000
     http_port: 8123
     flash_service_port: 3930
@@ -149,7 +149,7 @@ tiflash_servers:
 
 monitoring_servers:
   # # The ip address of the Monitoring Server.
-  - host: 10.233.75.203
+  - host: hostname
     # # SSH port of the server.
     # ssh_port: 22
     # # Prometheus Service communication port.
@@ -164,7 +164,7 @@ monitoring_servers:
 # # Server configs are used to specify the configuration of Grafana Servers.  
 grafana_servers:
   # # The ip address of the Grafana Server.
-  - host: 10.233.78.146
+  - host: hostname
     # # Grafana web port (browser access)
     port: 3000
     # # Grafana deployment file, startup script, configuration file storage directory.
