@@ -78,6 +78,8 @@ tikv_servers:
     # # The following configs are used to overwrite the `server_configs.tikv` values.
     # config:
     #   log.level: warn
+    config:
+      rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
   # # The ip address of the TiKV Server.
   - host: hostname
     # ssh_port: 22
@@ -88,6 +90,8 @@ tikv_servers:
     log_dir: "/tidb/tidb-deploy/tikv-20160/log"
     # config:
     #   log.level: warn
+    config:
+      rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
   - host: hostname
     # ssh_port: 22
     port: 20160
@@ -97,6 +101,8 @@ tikv_servers:
     log_dir: "/tidb/tidb-deploy/tikv-20160/log"
     # config:
     #   log.level: warn
+    config:
+      rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
   - host: hostname
     # ssh_port: 22
     port: 20160
@@ -106,6 +112,8 @@ tikv_servers:
     log_dir: "/tidb/tidb-deploy/tikv-20160/log"
     # config:
     #   log.level: warn
+    config:
+      rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
     
 # # Server configs are used to specify the configuration of TiFlash Servers.
 tiflash_servers:
