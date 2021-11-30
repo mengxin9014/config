@@ -17,6 +17,7 @@ items:
     spec:
       # 如果使用一个具体的版本, 例如 v5.0.1 而不是 nightly, master 等, 通过设置 IfNotPresent 可以加速创建速度
       imagePullPolicy: Always
+      storageClassName: fast-disks
       pd:
         replicas: 1
         image: pingcap/pd:v5.2.2
