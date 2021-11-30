@@ -1,0 +1,70 @@
+generateName: htap-test-tidb-
+items:
+  - name: tc # 资源对象项名称
+    type: TIDB_CLUSTER # 资源对象类型
+    spec:
+      # 如果使用一个具体的版本, 例如 v5.0.1 而不是 nightly, master 等, 通过设置 IfNotPresent 可以加速创建速度
+      imagePullPolicy: Always
+      pd:
+        replicas: 1
+        image: pingcap/pd:v5.2.2
+        # more refer to: https://github.com/tikv/pd/blob/master/conf/config.toml
+        # config is string type and toml format, I prefer uses https://www.convertsimple.com/convert-yaml-to-toml/ to transfer yaml to toml
+        resources:
+            requests:
+                memory: 8Gi
+                cpu: "4"
+                storage: 500Gi
+        config: |
+          [log]
+          level = "info"
+      tidb:
+        replicas: 1
+        image: pingcap/tidb:v5.2.2
+        resources:
+            requests:
+                memory: 16Gi
+                cpu: "8"
+                storage: 500Gi
+        config: |
+          [log]
+          # Log level: debug, info, warn, error, fatal.
+          level = "info"
+
+      tikv:
+        replicas: 4
+        image: pingcap/tikv:v5.2.2
+        # more refer to: https://github.com/tikv/tikv/blob/master/etc/config-template.toml
+        resources:
+            requests:
+                memory: 32Gi
+                cpu: "8"
+                storage: 2000Gi
+        config: |
+          ## Log levels: trace, debug, info, warning, error, critical.
+          ## Note that `debug` and `trace` are only available in development builds.
+          log-level = "info"
+          [storage]
+          reserve-space = 0
+          rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
+          rocksdb.writecf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
+          rocksdb.lockcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
+          rocksdb.defaultcf.block-cache-size: 8G
+          rocksdb.writecf.block-cache-size: 5G
+          rocksdb.lockcf.block-cache-size: 512M
+          raftdb.defaultcf.block-cache-size: 512M
+      tiflash:
+        replicas: 2
+        image: pingcap/tiflash:v5.2.2
+        # more refer to: https://docs.pingcap.com/zh/tidb/stable/tiflash-configuration#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-tiflashtoml
+        # you need at lease uses github.com/pingcap/test-infra/sdk@v0.0.0-20210705141439-f1670c1d3048 or newer version
+        resources:
+            requests:
+                memory: 64Gi
+                cpu: "32"
+                storage: 2000Gi
+        securityContext:
+            capabilities:
+                add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+        config: |
+          log-level = "info"
