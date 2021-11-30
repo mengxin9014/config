@@ -7,6 +7,9 @@ global:
   deploy_dir: "/tidb/tidb-deploy"
   data_dir: "/tidb/tidb-data"
   arch: "amd64"
+  resource_control:
+  # See: https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html#MemoryLimit=bytes
+    memory_limit: "2G"
 
 
 monitored:
