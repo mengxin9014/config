@@ -105,5 +105,8 @@ items:
             storage: 2000Gi
         service:
             type: NodePort
+        securityContext:
+                capabilities:
+                    add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
         config: |
           log-level = "info"
