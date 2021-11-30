@@ -1,4 +1,16 @@
 generateName: htap-test-tidb-
+resourcePool: quantify_products
+reclaimPolicy:
+  gcStrategy:
+    onFailure:
+      artifact:
+        monitor: true
+        log: true
+    onSuccess:
+      artifact:
+        monitor: true
+        log: true
+        
 items:
   - name: tc # 资源对象项名称
     type: TIDB_CLUSTER # 资源对象类型
