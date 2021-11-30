@@ -9,7 +9,7 @@ global:
   arch: "amd64"
   resource_control:
   # See: https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html#MemoryLimit=bytes
-    memory_limit: "2G"
+    memory_limit: "4G"
 
 
 monitored:
@@ -85,6 +85,10 @@ tikv_servers:
       rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
       rocksdb.writecf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
       rocksdb.lockcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
+      rocksdb.defaultcf.block-cache-size: 8G
+      rocksdb.writecf.block-cache-size: 5G
+      rocksdb.lockcf.block-cache-size: 512M
+      raftdb.defaultcf.block-cache-size: 512M
   # # The ip address of the TiKV Server.
   - host: 10.233.71.72
     # ssh_port: 22
@@ -97,6 +101,10 @@ tikv_servers:
       rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
       rocksdb.writecf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
       rocksdb.lockcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
+      rocksdb.defaultcf.block-cache-size: 8G
+      rocksdb.writecf.block-cache-size: 5G
+      rocksdb.lockcf.block-cache-size: 512M
+      raftdb.defaultcf.block-cache-size: 512M
     # config:
     #   log.level: warn
   - host: 10.233.119.133
@@ -110,6 +118,10 @@ tikv_servers:
       rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
       rocksdb.writecf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
       rocksdb.lockcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
+      rocksdb.defaultcf.block-cache-size: 8G
+      rocksdb.writecf.block-cache-size: 5G
+      rocksdb.lockcf.block-cache-size: 512M
+      raftdb.defaultcf.block-cache-size: 512M
     # config:
     #   log.level: warn
   - host: 10.233.90.133
@@ -123,6 +135,10 @@ tikv_servers:
       rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
       rocksdb.writecf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
       rocksdb.lockcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
+      rocksdb.defaultcf.block-cache-size: 8G
+      rocksdb.writecf.block-cache-size: 5G
+      rocksdb.lockcf.block-cache-size: 512M
+      raftdb.defaultcf.block-cache-size: 512M
     # config:
     #   log.level: warn
     
