@@ -58,13 +58,18 @@ items:
           log-level = "info"
           [storage]
           reserve-space = 0
-          rocksdb.defaultcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
-          rocksdb.writecf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
-          rocksdb.lockcf.compression-per-level: ["no", "no", "no", "no", "no", "no", "no"]
-          rocksdb.defaultcf.block-cache-size: 8G
-          rocksdb.writecf.block-cache-size: 5G
-          rocksdb.lockcf.block-cache-size: 512M
-          raftdb.defaultcf.block-cache-size: 512M
+          [storage.block-cache]
+          rocksdb.defaultcf.block-cache-size = 8G
+          rocksdb.writecf.block-cache-size = 5G
+          rocksdb.lockcf.block-cache-size = 512M
+          raftdb.defaultcf.block-cache-size = 512M
+          [rocksdb.defaultcf]
+          compression-per-level = ["no", "no", "no", "no", "no", "no", "no"]
+          [rocksdb.writecf]
+          compression-per-level = ["no", "no", "no", "no", "no", "no", "no"]
+          [rocksdb.lockcf]
+          compression-per-level = ["no", "no", "no", "no", "no", "no", "no"]
+          
       tiflash:
         replicas: 2
         image: pingcap/tiflash:v5.2.2
