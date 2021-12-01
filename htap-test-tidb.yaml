@@ -108,5 +108,7 @@ items:
         securityContext:
                 capabilities:
                     add: ["SYS_ADMIN", "SYS_PTRACE", "NET_ADMIN"]
+        volumeMount: # NOTE: 额外挂载一个 nvme 盘的目录
+                mountPath: "/tidb"
         config: |
           log-level = "info"
